@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Seokmintime97 ♡</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Cute+Font&family=Cute+Days&family=Handlee&family=Gochi+Hand&display=swap" rel="stylesheet" />
+
+  <style>
+    * {
+      cursor: url('https://cur.cursors-4u.net/others/oth-9/oth800.cur'), auto !important;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: all 0.4s ease;
+    }
+
+    body {
+      background: linear-gradient(145deg, #f0f6fb, #f8e7eb); /* white to soft Serenity + Rose Quartz */
+      font-family: 'soft serif', cursive;
+      overflow-x: hidden;
+      text-align: center;
+      color: #7A5578;
+      position: relative;
+      min-height: 100vh;
+    }
+
+    header {
+      padding: 40px 20px 20px;
+    }
+
+    header h1 {
+      font-family: 'Cute Days', cursive;
+      font-size: 3em;
+      margin-bottom: 10px;
+      color: #D8A7B1;
+      text-shadow: 1px 1px 3px #f8f8f8;
+    }
+
+    .avatar-grid {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+
+    .avatar-card {
+      width: 140px;
+      height: 140px;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 4px solid #D8A7B1;
+      cursor: pointer;
+      position: relative;
+      background: #EAD7DD;
+      box-shadow: 0 4px 8px rgba(216, 167, 177, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .avatar-card:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 20px #D8A7B1aa;
+    }
+
+    .avatar-card:hover::after {
+      content: attr(data-label);
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #D8A7B1;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 10px;
+      font-size: 0.9em;
+      white-space: nowrap;
+    }
+
+    .avatar-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+    }
+
+    .content-section {
+      display: none;
+      padding: 20px;
+      text-align: left;
+      max-width: 600px;
+      margin: 20px auto;
+      background: #F4E7EB;
+      border-radius: 20px;
+      box-shadow: 0 0 10px #D8A7B1aa;
+      color: #7A5578;
+      font-weight: 500;
+      font-family: 'Cute Days', cursive;
+      font-size: 1.2em;
+    }
+
+    .content-section.active {
+      display: block;
+    }
+
+    footer {
+      background: #EAD7DD;
+      text-align: center;
+      padding: 20px;
+      font-size: 0.9em;
+      color: #C397B8;
+      margin-top: 60px;
+      border-top: 1px solid #D8A7B1;
+      font-family: 'Gochi Hand', cursive;
+    }
+
+    /* Sparkle animations */
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+      50% { opacity: 1; transform: scale(1.2) rotate(45deg); }
+    }
+
+    .sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #D8A7B1;
+      box-shadow: 0 0 10px #D8A7B1aa;
+      animation: sparkle 1s ease-out forwards;
+      pointer-events: none;
+      z-index: 10000;
+    }
+
+    /* Floating sparkles all over the screen */
+    @keyframes floatSparkles {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+    .floating-sparkle {
+      position: fixed;
+      width: 8px;
+      height: 8px;
+      background: radial-gradient(circle, #f9c3d2, #d8a7b1);
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: floatSparkles 10s linear infinite;
+      pointer-events: none;
+      z-index: 999;
+    }
+  </style>
+</head>
+<body>
+
+<audio id="fairySound" src="https://cdn.pixabay.com/download/audio/2021/08/04/audio_0f2b263a60.mp3?filename=fairy-chimes-3959.mp3" preload="auto"></audio>
+
+<header>
+  <h1>get to know me ♡</h1>
+</header>
+
+<div class="avatar-grid">
+  <div class="avatar-card" data-label="Camelia" onclick="showContent('camelia')">
+    <img src="https://i.pinimg.com/originals/af/ff/4b/afff4bcbe551fbe745e081907cba94a6.gif" alt="Camelia" />
+  </div>
+  <div class="avatar-card" data-label="Favourites" onclick="showContent('favourites')">
+    <img src="https://i.pinimg.com/originals/f8/d7/c1/f8d7c19bf4013ef918f28e3e97e341d5.gif" alt="Favourites" />
+  </div>
+  <div class="avatar-card" data-label="BYF/DNI" onclick="showContent('byf')">
+    <img src="https://i.pinimg.com/originals/d0/1b/ee/d01bee55b85df39ecda86de3639f34bd.gif" alt="BYF" />
+  </div>
+  <div class="avatar-card" data-label="Likes/Dislikes" onclick="showContent('likes')">
+    <img src="https://i.pinimg.com/originals/d8/d6/52/d8d652ec931dc3c2901a8038962a490f.gif" alt="Likes" />
+  </div>
+</div>
+
+<div id="camelia" class="content-section">
+  <h2>About Camelia</h2>
+  <p>She/Her | Asian | Muslim | Bangladeshi | ISFP-T | Libra | #FREE_PALESTINE</p>
+</div>
+<div id="favourites" class="content-section">
+  <h2>Favourites</h2>
+  <p>
+    ULTS: Lisa, Jisoo, Dokyeom, Dino, Hoshi, Beomgyu, Taehyun, Chungha, Taemin, Baekhyun<br />
+    SEMIS: Akmu, Aespa, Ateez, Baby Monster, CIX, CLC, Eunbi, Ive, Itzy, Kiss of Life, Le Sserafim, Monsta X, NewJeans, NCT, Somi, StayC, Sunmi, The Boyz, Treasure, Xdinary Heroes, Yedam, Yena, Youha
+  </p>
+</div>
+<div id="byf" class="content-section">
+  <h2>BYF/DNI</h2>
+  <p>
+    BYF: I don't talk much, I mostly talk about my favs. I hate my old classmates, I vent really easily, I have trust issues.<br />
+    DNI: If you fit the basic DNI criteria. You're rude, disloyal. You dislike any of my favs. If you like to joke on uncomfortable or serious stuff. If you're a Muslim phone.
+  </p>
+</div>
+<div id="likes" class="content-section">
+  <h2>Likes & Dislikes</h2>
+  <p>
+    Likes: Stars, sky, Music, cats, books, pet videos, rains, dramas, pasta, blue, chunky boots, heels, beads, plushies, vintage CDs.<br />
+    Dislikes: Toxic obsessive stans, snakes, nosey people, kpop antis, Muslim phobes, disloyalty, school, work, manipulators, bullies, fat shamers, and lizards.
+  </p>
+</div>
+
+<footer>
+  © 2025 Camelia | Made with love
+</footer>
+
+<script>
+  // Show content sections on avatar click
+  function showContent(id) {
+    document.querySelectorAll('.content-section').forEach(el => el.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    playFairySound();
+    createClickSparkles(event);
+  }
+
+  // Play fairy sparkle sound on click
+  function playFairySound() {
+    const sound = document.getElementById('fairySound');
+    sound.currentTime = 0;
+    sound.play();
+  }
+
+  // Create sparkle effect where clicked
+  function createClickSparkles(e) {
+    if (!e) e = window.event;
+    let sparkleCount = 8;
+    for (let i = 0; i < sparkleCount; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('sparkle');
+      sparkle.style.left = (e.clientX + (Math.random() * 30 - 15)) + 'px';
+      sparkle.style.top = (e.clientY + (Math.random() * 30 - 15)) + 'px';
+      sparkle.style.animationDuration = (0.6 + Math.random() * 0.6) + 's';
+      document.body.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 1200);
+    }
+  }
+
+  // Floating sparkles all over page
+  function createFloatingSparkles() {
+    const sparkleCount = 20;
+    for (let i = 0; i < sparkleCount; i++) {
+      const sparkle = document.createElement('div');
+      sparkle.classList.add('floating-sparkle');
+      sparkle.style.left = Math.random() * window.innerWidth + 'px';
+      sparkle.style.top = Math.random() * window.innerHeight + 'px';
+      sparkle.style.animationDelay = (Math.random() * 10) + 's';
+      sparkle.style.width = sparkle.style.height = (5 + Math.random() * 7) + 'px';
+      document.body.appendChild(sparkle);
+    }
+  }
+
+  createFloatingSparkles();
+
+  // Also create sparkles on ANY click anywhere on the page
+  document.body.addEventListener('click', function(e) {
+    createClickSparkles(e);
+    playFairySound();
+  });
+</script>
+</body>
+</html>
